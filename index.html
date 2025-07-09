@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Carte Conceptuelle : Théorème Binomial</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <h1>🧠 Carte Conceptuelle : Théorème Binomial</h1>
+
+  <div class="tabs">
+    <button class="tab-button active" data-tab="expansion">Expansion</button>
+    <button class="tab-button" data-tab="general">Terme Général</button>
+    <button class="tab-button" data-tab="middle">Terme du Milieu</button>
+    <button class="tab-button" data-tab="fractional">Fractionnaire</button>
+    <button class="tab-button" data-tab="coefficients">Coefficients Binomiaux</button>
+    <button class="tab-button" data-tab="results">Résultats Importants</button>
+  </div>
+
+  <div class="tab-content active" id="expansion">
+    <h2>Expansion</h2>
+    <p>Pour \( n \in \mathbb{N} \) :</p>
+    <p>\[(a + b)^n = \sum_{r=0}^n \binom{n}{r} a^{n-r} b^r\]</p>
+    <p><strong>Exemple :</strong> \( (a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3 \)</p>
+
+    <p>Pour \( n \in \mathbb{Z}^- \) :</p>
+    <p>\[(1 + x)^{-n} = \sum_{r=0}^\infty (-1)^r \binom{n + r -1}{r} x^r\]</p>
+    <p><strong>Exemple :</strong> \( (1 + x)^{-1} = 1 - x + x^2 - x^3 + \cdots \)</p>
+  </div>
+
+  <div class="tab-content" id="general">
+    <h2>Terme Général</h2>
+    <p>\[T_{r+1} = \binom{n}{r} a^{n-r} b^r\]</p>
+    <p>Depuis la fin : \[T_{r+1} = T_{n-r+1}\]</p>
+    <p><strong>Exemple :</strong> Dans \( (2x + 3)^5 \), le 3<sup>e</sup> terme est :</p>
+    <p>\[T_3 = \binom{5}{2} (2x)^3 \cdot 3^2 = 10 \cdot 8x^3 \cdot 9 = 720x^3\]</p>
+  </div>
+
+  <div class="tab-content" id="middle">
+    <h2>Terme(s) du Milieu</h2>
+    <p>Si \( n \) est pair : \[\text{Terme du milieu} = T_{\frac{n}{2} + 1}\]</p>
+    <p>Si \( n \) est impair : \[T_{\frac{n+1}{2}},\quad T_{\frac{n+3}{2}}\]</p>
+    <p><strong>Exemple :</strong> Dans \( (x + 1)^4 \), le terme du milieu est :</p>
+    <p>\[T_3 = \binom{4}{2}x^2 = 6x^2\]</p>
+  </div>
+
+  <div class="tab-content" id="fractional">
+    <h2>Théorème Binomial Fractionnaire</h2>
+    <p>Pour \( |x| < 1 \), \( n \in \mathbb{Q} \) :</p>
+    <p>\[(1 + x)^n = 1 + nx + \frac{n(n-1)}{2!}x^2 + \frac{n(n-1)(n-2)}{3!}x^3 + \cdots\]</p>
+    <p><strong>Exemple :</strong> \( (1 + x)^{1/2} = 1 + \frac{1}{2}x - \frac{1}{8}x^2 + \frac{1}{16}x^3 - \cdots \)</p>
+  </div>
+
+  <div class="tab-content" id="coefficients">
+    <h2>Coefficients Binomiaux</h2>
+    <p>\[\binom{n}{r} = \binom{n}{n-r},\quad \sum_{r=0}^n \binom{n}{r} = 2^n\]</p>
+    <p>Plus grand coefficient :
+      <ul>
+        <li>Si \( n \) est pair : \( \binom{n}{n/2} \)</li>
+        <li>Si \( n \) est impair : \( \binom{n}{(n-1)/2} \) et \( \binom{n}{(n+1)/2} \)</li>
+      </ul>
+    </p>
+    <p><strong>Exemple :</strong> \( \binom{6}{3} = 20 \), \( \binom{8}{4} = 70 \)</p>
+  </div>
+
+  <div class="tab-content" id="results">
+    <h2>Résultats Importants</h2>
+    <ul>
+      <li>\[\sum_{r=0}^n \binom{n}{r} = 2^n\]</li>
+      <li>\[\sum_{r=0}^{n} (-1)^r \binom{n}{r} = 0\]</li>
+      <li>\[\sum_{r=0}^{n} r \binom{n}{r} = n \cdot 2^{n-1}\]</li>
+      <li>\[\sum_{r=0}^{n} r^2 \binom{n}{r} = n(n+1) \cdot 2^{n-2}\]</li>
+      <li>\[\sum_{k=0}^{n} \binom{n}{k}^2 = \binom{2n}{n}\]</li>
+      <li>\[\binom{n}{0} + \binom{n}{2} + \binom{n}{4} + \cdots = \binom{n}{1} + \binom{n}{3} + \cdots = 2^{n-1}\]</li>
+    </ul>
+    <p><strong>Exemple :</strong> Pour \( n = 4 \) :</p>
+    <p>\[\sum_{r=0}^{4} \binom{4}{r} = 1 + 4 + 6 + 4 + 1 = 16 = 2^4\]</p>
+    <p>\[\sum_{r=0}^{4} (-1)^r \binom{4}{r} = 1 - 4 + 6 - 4 + 1 = 0\]</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
